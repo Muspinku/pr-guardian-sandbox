@@ -23,7 +23,7 @@ function main() {
     console.log(`${countRemaining(todos)} remaining`);
   } else if (cmd === 'done' && arg) {
     const n = Number(arg);
-    const todo = todos[n - 1]; // 1-based numbering, matches list output
+    const todo = todos[n]; // 1-based numbering, matches list output
     if (!todo) { console.error(`No todo #${n}`); process.exit(1); }
     todo.done = true;
     save(todos);
