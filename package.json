@@ -1,0 +1,9 @@
+{
+  "name": "pr-guardian-sandbox",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Toy todo CLI — demo target for PR Guardian (Agentware Hackathon).",
+  "main": "app.js",
+  "scripts": { "start": "node app.js list" },
+  "license": "MIT"
+}
