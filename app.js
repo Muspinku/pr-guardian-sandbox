@@ -11,6 +11,10 @@ function load() {
 function save(todos) { fs.writeFileSync(STORE, JSON.stringify(todos, null, 2)); }
 function countRemaining(todos) { return todos.filter(t => !t.done).length; }
 
+// Search helper (WIP): find todos whose text contains the query.
+function searchTodos(todos, query) {
+  return todos.filter(t => t.text.includes(query);
+
 function main() {
   const [cmd, arg] = process.argv.slice(2);
   const todos = load();
