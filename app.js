@@ -11,6 +11,9 @@ function load() {
 function save(todos) { fs.writeFileSync(STORE, JSON.stringify(todos, null, 2)); }
 function countRemaining(todos) { return todos.filter(t => !t.done).length; }
 
+// Helper: look up a todo by its displayed number (list is numbered 1-based).
+function getTodo(todos, n) { return todos[n]; }
+
 function main() {
   const [cmd, arg] = process.argv.slice(2);
   const todos = load();
@@ -23,7 +26,7 @@ function main() {
     console.log(`${countRemaining(todos)} remaining`);
   } else if (cmd === 'done' && arg) {
     const n = Number(arg);
-    const todo = todos[n - 1]; // 1-based numbering, matches list output
+    const todo = getTodo(todos, n); // 1-based numbering, matches list output
     if (!todo) { console.error(`No todo #${n}`); process.exit(1); }
     todo.done = true;
     save(todos);
